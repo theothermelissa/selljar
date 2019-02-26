@@ -1,0 +1,26 @@
+.steps-list {
+  display: flex;
+  flex-direction: row;
+}
+
+.step-container {
+  display: flex;
+  flex-flow: row wrap;
+  background: #F4FCFC;
+  border: 2px solid gray;
+  border-radius: 5px;
+}
+
+.step-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.step-name {
+  font-size: 110%;
+
+}
+
+.step-description {
+  font-size: 80%;
+}
