@@ -19,17 +19,17 @@ const BenefitsTray = styled.section`
 const StyledHandshake = styled(Handshake)`
   height: 100px;
   width: 100px;
-  color: #F4FCFC;
+  color: #233E58;
 `
 const StyledMapMarkerAlt = styled(MapMarkerAlt)`
   height: 100px;
   width: 100px;
-  color: #F4FCFC;
+  color: #233E58;
 `
 const StyledDollarSign = styled(DollarSign)`
   height: 100px;
   width: 100px;
-  color: #F4FCFC;
+  color: #233E58;
 `
 
 

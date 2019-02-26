@@ -10,8 +10,8 @@ const BenefitContainer = styled.div`
   height: 275px;
   padding: 50px 10px 10px 10px;
   margin: 10px;
-  background: #233E58;
-  border-color: #233E58;
+  background: white;
+  border: 4px solid #233E58;
   border-radius: 25px;
 `;
 
@@ -23,11 +23,11 @@ const NameContainer = styled.div`
 
 const BenefitName = styled.h2`
   font-size: 130%;
-  color: #F4FCFC;
+  color: #233E58;
 `;
 
 const BenefitDescription = styled.text`
-  color: #F4FCFC;
+  color: #233E58;
   font-size: 75%;
 `;
 
