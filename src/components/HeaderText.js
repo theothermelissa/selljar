@@ -1,10 +1,11 @@
 import React from "react";
 import styled from "styled-components"
+import { taupe } from "./colors";
 
 const Title = styled.h1`
-  font-size: 150%;
+  font-size: 3em;
   text-align: center;
-  color: #233E58;
+  color: ${taupe};
 `;
 
 const HeaderText = ({text}) => (  

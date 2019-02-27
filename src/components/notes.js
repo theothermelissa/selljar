@@ -1,10 +1,4 @@
-// let colors = {
-// lightbluegray: #F4FCFC,
-// brightturquoise: #0CECDC,
-// navy: #233E58,
-// orange: #FC6404,
-// mediumgray: #4C545C,
-// }
+
 
 
 

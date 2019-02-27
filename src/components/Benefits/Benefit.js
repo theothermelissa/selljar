@@ -1,47 +1,60 @@
 import React from "react";
 import styled from "styled-components"
+import { cream, charcoal } from "../colors"
 
 const BenefitContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  width: 10em;
+  flex-basis: 200px;
   height: 275px;
-  padding: 50px 10px 10px 10px;
-  margin: 10px;
-  background: white;
-  border: 4px solid #233E58;
+  padding: 50px 10px 30px 20px;
+  margin: 8px;
+  /* background: #F4FCFC; */
+  background: ${charcoal};
+  border: 1px solid ${charcoal};
   border-radius: 25px;
 `;
 
-const NameContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
+// const NameContainer = styled.div`
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+// `;
 
 const BenefitName = styled.h2`
   font-size: 130%;
-  color: #233E58;
+  color: ${cream};
 `;
 
-const BenefitDescription = styled.text`
-  color: #233E58;
-  font-size: 75%;
+const DescriptionContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 30%;
+`;
+
+const BenefitDescription = styled.span`
+  color: ${cream};
+  font-size: 90%;
+  /* font-weight: bold; */
 `;
 
 const Benefit = ({ icon, name, description }) => (  
   <BenefitContainer>
     { icon }
-    <NameContainer>
+    {/* <NameContainer> */}
       <BenefitName>
         {name}
       </BenefitName>
-    </NameContainer>
-    <BenefitDescription>
-      {description}
-    </BenefitDescription>
+    {/* </NameContainer> */}
+    <DescriptionContainer>
+      <BenefitDescription>
+        {description}
+      </BenefitDescription>
+    </DescriptionContainer>
   </BenefitContainer> 
 );
 

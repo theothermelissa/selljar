@@ -5,6 +5,7 @@ import {
   DollarSign 
 } from 'styled-icons/fa-solid';
 import Benefit from './Benefit';
+import { lightestgray, cream, bonewhite, yellow } from "../colors";
 import styled from 'styled-components';
 
 
@@ -19,26 +20,26 @@ const BenefitsTray = styled.section`
 const StyledHandshake = styled(Handshake)`
   height: 100px;
   width: 100px;
-  color: #233E58;
+  color: ${cream};
 `
 const StyledMapMarkerAlt = styled(MapMarkerAlt)`
   height: 100px;
   width: 100px;
-  color: #233E58;
+  color: ${cream};
 `
 const StyledDollarSign = styled(DollarSign)`
   height: 100px;
   width: 100px;
-  color: #233E58;
+  color: ${cream};
 `
 
 
 
 const BenefitsList = () => (  
   <BenefitsTray>
-    <Benefit icon={<StyledHandshake />} name="Easy-Peasy" description="This is something to say." />
-    <Benefit icon={<StyledMapMarkerAlt />} name="Shop Local" description="This is something else to say." />
-    <Benefit icon={<StyledDollarSign />} name="High-Profit" description="This is something ELSE else to say." />
+    <Benefit icon={<StyledHandshake />} name="Easy-Peasy" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." />
+    <Benefit icon={<StyledMapMarkerAlt />} name="Shop Local" description="Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur." />
+    <Benefit icon={<StyledDollarSign />} name="High-Profit" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." />
   </BenefitsTray>
 );
 
