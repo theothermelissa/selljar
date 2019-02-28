@@ -40,8 +40,8 @@ const Titled = styled.span`
 
 const OwnerLetter = ({ content, speaker, title }) => (  
   <Parallax
-    offsetYMax={20}
-    offsetYMin={-20}
+    offsetYMax={15}
+    offsetYMin={-15}
     slowerScrollRate
     >
     <LetterBlock>
