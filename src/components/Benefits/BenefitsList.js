@@ -5,7 +5,7 @@ import {
   DollarSign 
 } from 'styled-icons/fa-solid';
 import Benefit from './Benefit';
-import { lightestgray, cream, bonewhite, yellow } from "../colors";
+import { taupe, cream, bonewhite, yellow } from "../colors";
 import styled from 'styled-components';
 
 
@@ -20,17 +20,17 @@ const BenefitsTray = styled.section`
 const StyledHandshake = styled(Handshake)`
   height: 100px;
   width: 100px;
-  color: ${cream};
+  color: ${taupe};
 `
 const StyledMapMarkerAlt = styled(MapMarkerAlt)`
   height: 100px;
   width: 100px;
-  color: ${cream};
+  color: ${taupe};
 `
 const StyledDollarSign = styled(DollarSign)`
   height: 100px;
   width: 100px;
-  color: ${cream};
+  color: ${taupe};
 `
 
 
