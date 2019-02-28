@@ -26,14 +26,14 @@ const Title = styled.h1`
 
 const InfoTitle = ({title}) => (  
   <Parallax
-    offsetYMax={20}
-    offsetYMin={-20}
+    offsetYMax={10}
+    offsetYMin={-10}
     slowerScrollRate
     >
     <TitleContainer>
       <Parallax
-        offsetYMax={60}
-        offsetYMin={-60}
+        offsetYMax={40}
+        offsetYMin={-40}
         slowerScrollRate
         >
         <Title>{title}</Title>
