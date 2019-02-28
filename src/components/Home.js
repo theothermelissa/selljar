@@ -10,13 +10,18 @@ import QuotesList from "./Quotes/QuotesList";
 import SectionImage from "./SectionImage";
 import InfoBox from "./Info/InfoBox";
 import SignUp from "./Buttons/SignUp";
+import Smoke from "./Smoke";
+import TitleBox from "./PageTitle/TitleBox";
 
 const Home = () => (
   <ParallaxProvider>
     <div>
-      <HeaderText text="Firehouse Barbecue Fundraisers" />
-      <HeaderImage />
-      <SubheaderText text="High-profit fundraisers -- hold the hassle." />
+      {/* <Smoke>
+      </Smoke> */}
+      <TitleBox />
+      {/* <HeaderText text="Firehouse Barbecue Fundraisers" /> */}
+      {/* <HeaderImage /> */}
+      {/* <SubheaderText text="High-profit fundraisers -- hold the hassle." /> */}
       <SectionBreak />
       {/* <SubheaderText text="We offer:" />
       <HeaderText text="Better Fundraisers" />
