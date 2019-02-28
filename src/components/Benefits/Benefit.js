@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components"
-import { cream, charcoal } from "../colors"
+import { cream, bonewhite, taupe } from "../colors"
 
 const BenefitContainer = styled.div`
   display: flex;
@@ -12,8 +12,8 @@ const BenefitContainer = styled.div`
   padding: 50px 10px 30px 20px;
   margin: 8px;
   /* background: #F4FCFC; */
-  background: ${charcoal};
-  border: 1px solid ${charcoal};
+  background: ${bonewhite};
+  border: 3px solid ${taupe};
   border-radius: 25px;
 `;
 
@@ -25,7 +25,7 @@ const BenefitContainer = styled.div`
 
 const BenefitName = styled.h2`
   font-size: 130%;
-  color: ${cream};
+  color: ${taupe};
 `;
 
 const DescriptionContainer = styled.div`
@@ -37,7 +37,7 @@ const DescriptionContainer = styled.div`
 `;
 
 const BenefitDescription = styled.span`
-  color: ${cream};
+  color: ${taupe};
   font-size: 90%;
   /* font-weight: bold; */
 `;
