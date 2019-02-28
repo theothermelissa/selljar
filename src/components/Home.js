@@ -24,15 +24,14 @@ const Home = () => (
       <InfoBox />
       <SectionBreak />
       <HeaderText text="Why Firehouse?" />
-      <SectionBreak />
+      {/* <SectionBreak /> */}
       <BenefitsList />
-      <SectionBreak />
       <SignUp />
-      <SectionBreak />
-      <SectionImage />
+      {/* <SectionBreak /> */}
+      {/* <SectionImage /> */}
       <SectionBreak />
       <HeaderText text="How it works:" />
-      <SectionBreak />
+      {/* <SectionBreak /> */}
       <StepsList />
       <SectionBreak />
       <HeaderText text="What's everyone saying?" />
