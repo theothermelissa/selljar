@@ -11,12 +11,14 @@ const ButtonContainer = styled.section`
 
 const Button = styled.button`
   background: ${orange};
-  color: ${cream};
-  font-size: 1em;
+  color: ${bonewhite};
+  font-size: 1.5em;
   font-weight: bold;
-  margin: 1em;
-  padding: 1em;
-  border-radius: 5px;
+  text-transform: uppercase;
+  margin: 5vw;
+  padding: .5em;
+  /* border: 3px solid ${bonewhite} */
+  border-radius: 7px;
 `;
 
 const SignUp = () => (  
