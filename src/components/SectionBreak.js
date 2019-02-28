@@ -4,7 +4,7 @@ import styled from "styled-components";
 const Spacer = styled.div`
   display: block;
   /* width: 100%; */
-  height: 20vh;
+  height: 15vh;
 `;
 
 const SectionBreak = () => (  
