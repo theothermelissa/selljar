@@ -19,24 +19,57 @@ model Post {
   authorId  String?
 }
 
-model Product {
-  id          String                  @id @default(cuid())
-  name        String
-  fundraisers ProductsOnFundraisers[]
-}
-
 model Fundraiser {
-  id       String                  @id @default(cuid())
-  products ProductsOnFundraisers[]
+  id       String               @id @default(cuid())
   name     String
+  products FundraiserProducts[]
+  sellers  FundraiserSellers[]
+  orders   Order[]
 }
 
-model ProductsOnFundraisers {
+model Product {
+  id          String               @id @default(cuid())
+  name        String
+  fundraisers FundraiserProducts[]
+}
+
+model Seller {
+  id          String              @id @default(cuid())
+  name        String
+  fundraisers FundraiserSellers[]
+  orders      Order[]
+}
+
+model Order {
+  id           String     @id @default(cuid())
+  fundraiser   Fundraiser @relation(fields: [fundraiserId], references: [id])
+  fundraiserId String
+  seller       Seller     @relation(fields: [sellerId], references: [id])
+  sellerId     String
+  supporter    Supporter  @relation(fields: [supporterId], references: [id])
+  supporterId  String
+}
+
+model Supporter {
+  id     String  @id @default(cuid())
+  name   String
+  orders Order[]
+}
+
+model FundraiserProducts {
   id           String      @id @default(cuid())
   Product      Product?    @relation(fields: [productId], references: [id])
   productId    String?
   Fundraiser   Fundraiser? @relation(fields: [fundraiserId], references: [id])
   fundraiserId String?
+}
+
+model FundraiserSellers {
+  id           String      @id @default(cuid())
+  Seller       Seller?     @relation(fields: [sellerId], references: [id])
+  sellerId     String?
+  Fundraiser   Fundraiser? @relation(fields: [fundraiserId], references: [id])
+  fundraiserId String
 }
 
 model User {

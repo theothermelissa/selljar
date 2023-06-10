@@ -2,52 +2,23 @@ import prisma from "../lib/prisma";
 import { GetStaticProps } from "next/types";
 import Router from "next/router";
 import React from "react";
-
-// type PostProps = {
-//   id: string;
-//   title: string;
-//   author: {
-//     name: string;
-//     email: string;
-//   } | null;
-//   content: string;
-//   published: boolean;
-// };
-
-type Product = {
-  Product: {
-    id: string;
-    name: string;
-  };
-};
-
-type FundraiserProps = {
-  id: string;
-  name: string;
-  products: Product[];
-};
-
-type Props = {
-  feed: FundraiserProps[];
-};
-
-// const user = await prisma.user.findFirst({
-//     include: {
-//       posts: {
-//         include: {
-//           categories: true,
-//         },
-//       },
-//     },
-//   })
+import { FundraiserProps } from "./types";
 
 export const getStaticProps: GetStaticProps = async () => {
-  console.log(">>>>>>>>>>>>>>>>>>  getting fundraisers <<<<<<<<<<<<<<<<<<<<");
   const feed = await prisma.fundraiser.findMany({
     include: {
       products: {
         include: {
           Product: true,
+        },
+      },
+      sellers: {
+        include: {
+          Seller: {
+            include: {
+              orders: true,
+            },
+          },
         },
       },
     },
@@ -58,7 +29,25 @@ export const getStaticProps: GetStaticProps = async () => {
   };
 };
 
-const Fundraisers: React.FC<Props> = (props) => {
+const submitNewOrder = async (e: React.SyntheticEvent) => {
+  e.preventDefault();
+  try {
+    const body = {
+      fundraiserId: "cliq1wqag00006f2ekt21f1el",
+      sellerId: "cliq1zjih00066f2exwd641g0",
+      supporterName: "Mary",
+    };
+    await fetch("/api/order", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(body),
+    }).then((response) => {});
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+const Fundraisers: React.FC<FundraiserProps> = (props) => {
   const { feed } = props;
   return (
     <div>
@@ -67,10 +56,23 @@ const Fundraisers: React.FC<Props> = (props) => {
           return (
             <div key={fundraiser.id} className="fundraiser">
               <h1>{fundraiser.name}</h1>
+              <h2>Products:</h2>
               <ul>
                 {fundraiser.products.map((p) => {
-                  console.log("p: ", JSON.stringify(p));
                   return <li key={p.Product.id}>{p.Product.name}</li>;
+                })}
+              </ul>
+              <h2>Sellers:</h2>
+              <ul>
+                {fundraiser.sellers.map((s) => {
+                  return (
+                    <div key={s.Seller.id}>
+                      <li>
+                        {s.Seller.name} (orders: {s.Seller.orders.length}){" "}
+                        <button onClick={submitNewOrder}>Add an Order</button>
+                      </li>
+                    </div>
+                  );
                 })}
               </ul>
             </div>
