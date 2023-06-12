@@ -1,15 +1,25 @@
+import Link from "next/link";
+
 const Home = () => {
   return (
     <div>
       <h1>Welcome home.</h1>
-      <p>This will be the User's dashboard. It will include:</p>
+      <p>This will be the dashboard. Links:</p>
       <ul>
         <li>
-          Links to fundraiser(s), order(s), &/or seller(s) store, depending on
-          user type
+          <Link href="/">Home</Link>
         </li>
-        <li>Notifications / updates</li>
-        <li>Link to manage user account settings</li>
+        <li>
+          <Link href="/fundraisers">Fundraisers</Link>
+        </li>
+        <li>
+          {" "}
+          <Link href="/posts">Posts</Link>
+        </li>
+        <li>
+          {" "}
+          <Link href="/drafts">Drafts</Link>
+        </li>
       </ul>
     </div>
   );

@@ -36,7 +36,6 @@ export const getStaticProps: GetStaticProps = async () => {
 
 const submitNewPost = async (e: React.SyntheticEvent) => {
   e.preventDefault();
-  console.log("trying to submit post");
   try {
     const body = { title: "Test title", content: "Test content" };
     await fetch("/api/post", {

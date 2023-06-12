@@ -1,8 +1,7 @@
-import prisma from "../lib/prisma";
+import prisma from "../../lib/prisma";
 import { GetStaticProps } from "next/types";
-import Router from "next/router";
 import React from "react";
-import { FundraiserProps } from "./types";
+import { FundraiserProps } from "../types";
 
 export const getStaticProps: GetStaticProps = async () => {
   const feed = await prisma.fundraiser.findMany({
@@ -43,7 +42,7 @@ const submitNewOrder = async (e: React.SyntheticEvent) => {
       body: JSON.stringify(body),
     }).then((response) => {});
   } catch (error) {
-    console.error(error);
+    console.error("this is the error: ", error);
   }
 };
 
@@ -59,7 +58,10 @@ const Fundraisers: React.FC<FundraiserProps> = (props) => {
               <h2>Products:</h2>
               <ul>
                 {fundraiser.products.map((p) => {
-                  return <li key={p.Product.id}>{p.Product.name}</li>;
+                  const {
+                    Product: { id, name },
+                  } = p;
+                  return <li key={id}>{name}</li>;
                 })}
               </ul>
               <h2>Sellers:</h2>

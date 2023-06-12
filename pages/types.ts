@@ -1,8 +1,6 @@
 export type Product = {
-  Product: {
-    id: string;
-    name: string;
-  };
+  id: string;
+  name: string;
 };
 
 export type Seller = {
@@ -30,10 +28,20 @@ export type Supporter = {
 export type Fundraiser = {
   id: string;
   name: string;
-  products: Product[];
+  products: FundraiserProduct[];
   sellers: Seller[];
+};
+
+export type FundraiserProduct = {
+  id: string;
+  Product: Product;
+  fundraiser: Fundraiser;
 };
 
 export type FundraiserProps = {
   feed: Fundraiser[];
+};
+
+export type ProductProps = {
+  feed: Product[];
 };
