@@ -1,6 +1,5 @@
 import prisma from "../lib/prisma";
 import { GetStaticProps } from "next/types";
-import Router from "next/router";
 import React from "react";
 import { ProductProps } from "./types";
 
