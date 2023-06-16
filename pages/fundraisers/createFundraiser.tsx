@@ -5,13 +5,12 @@ const CreateFundraiser = () => {
   const [name, setName] = useState<string | undefined>();
 
   const submitFundraiser = async (e: SyntheticEvent) => {
-    e.preventDefault();
     const body = {
       productIds: productIds,
       name: name,
     };
     try {
-      await fetch("/api/fundraiser", {
+      await fetch("/api/fundraisers", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body),

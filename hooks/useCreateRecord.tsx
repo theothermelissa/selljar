@@ -1,6 +1,6 @@
 import useSWR from "swr";
 
-export const useCreateRecord = (path) => {
+export const useCreateRecord = (path: string) => {
   const { mutate } = useSWR(path);
 
   const addRecord = async (data: any) => {

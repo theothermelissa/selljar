@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import useSWR from "swr";
 
 type DeleteProps = {
@@ -7,9 +8,8 @@ type DeleteProps = {
 
 export const useDeleteRecord = (props: DeleteProps) => {
   const { table, id } = props;
+  const router = useRouter();
   const path = `/api/${table}/${id}`;
-  console.log("delete path: ", path);
-
   const { mutate } = useSWR(path);
 
   const removeRecord = async () => {
@@ -18,6 +18,7 @@ export const useDeleteRecord = (props: DeleteProps) => {
       throw new Error("Unable to delete record.");
     }
     mutate();
+    router.reload();
   };
   return removeRecord;
 };

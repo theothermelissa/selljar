@@ -1,8 +1,10 @@
 import prisma from "../../lib/prisma";
 import { GetStaticProps } from "next/types";
-import React from "react";
+import React, { useState } from "react";
 import { Fundraiser, FundraiserProps } from "../types";
 import { useDeleteRecord } from "../../hooks/useDeleteRecord";
+import { useCreateRecord } from "../../hooks/useCreateRecord";
+import CreateFundraiser from "./createFundraiser";
 
 export const getStaticProps: GetStaticProps = async () => {
   const feed = await prisma.fundraiser.findMany({
@@ -55,15 +57,29 @@ type FundraiserRecordProps = {
 const FundraiserRecord = (props: FundraiserRecordProps) => {
   const { id, name, sellers, products } = props.fundraiser;
   const deleteFundraiser = useDeleteRecord({ table: "fundraisers", id: id });
+  const [addFundOpen, setAddFundOpen] = useState(false);
+
+  const handleClick = () => setAddFundOpen(true);
 
   return (
     <div
-      style={{ backgroundColor: "pink", width: "100vw" }}
+      style={{ backgroundColor: "white", width: "100vw" }}
       key={id}
       className="fundraiser"
     >
-      <h1>{name}</h1>
-      <h2>Products:</h2>
+      {addFundOpen ? (
+        <CreateFundraiser />
+      ) : (
+        <button onClick={handleClick}>Add a Fundraiser</button>
+      )}
+      <h1>
+        Name: {name}{" "}
+        <button onClick={deleteFundraiser}>Delete this Fundraiser</button>
+      </h1>
+
+      <h2>Id: {id}</h2>
+
+      <h3>Products:</h3>
       <ul>
         {products.map((p) => {
           const {
@@ -72,7 +88,7 @@ const FundraiserRecord = (props: FundraiserRecordProps) => {
           return <li key={id}>{name}</li>;
         })}
       </ul>
-      <h2>Sellers:</h2>
+      <h3>Sellers:</h3>
       <ul>
         {sellers.map((s) => {
           const {
@@ -88,7 +104,6 @@ const FundraiserRecord = (props: FundraiserRecordProps) => {
           );
         })}
       </ul>
-      <button onClick={deleteFundraiser}>Delete</button>
     </div>
   );
 };
